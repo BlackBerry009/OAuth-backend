@@ -27,6 +27,9 @@ jobs:
           CI: true
       # 部署到腾讯云服务器
       - name: Deploy to Server
+        run: |
+          npm install
+          pm2 start index.js
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
             # 本地.ssh文件下的私钥id_rsa，存在secrets的TOKEN中
@@ -41,8 +44,5 @@ jobs:
             REMOTE_USER:  ${{ secrets.SERVER_USERNAME }} 
             # 目标目录
             TARGET: "/www/wwwroot/backend"
-          run: |
-            npm install
-            pm2 start index.js
 
 
