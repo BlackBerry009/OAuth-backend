@@ -41,4 +41,8 @@ jobs:
             REMOTE_USER:  ${{ secrets.SERVER_USERNAME }} 
             # 目标目录
             TARGET: "/www/wwwroot/backend"
+          run: |
+            npm install
+            pm2 start index.js
+
 
