@@ -3,7 +3,8 @@ const router = new Router();
 const axios = require('axios')
 const { wx_secret_key } = require('../../constant');
 const { packData } = require('../utils');
-const { URLSearchParams } = require('url');
+
+let userInfo = {};
 
 router.get('/login/wx', async ctx => {
     const res = await axios.get(`https://server01.vicy.cn/8lXdSX7FSMykbl9nFDWESdc6zfouSAEz/wxLogin/tempUserId?secretKey=${wx_secret_key}`)
