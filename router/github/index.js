@@ -5,6 +5,9 @@ const { client_id, client_secret } = require('../../constant');
 const { packData } = require('../utils');
 const { URLSearchParams } = require('url');
 
+router.get('/',ctx => {
+    ctx.body = 'hello'
+})
 router.get('/login/github', ctx => {
     ctx.body = packData(`https://github.com/login/oauth/authorize?client_id=${client_id}`)
 })
